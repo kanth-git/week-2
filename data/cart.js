@@ -15,9 +15,9 @@
  }
  
  
- /*export function saveToStorage(){
-  localStorage.setitem('cart',JSON.stringify(cart));
- }*/
+ function saveToStorage(){
+  localStorage.setItem('cart',JSON.stringify(cart));
+ }
 
  export function addToCart(productId){
   let matchingItem ;
@@ -36,7 +36,7 @@
         });
       }
    
-      //saveToStorage();
+      saveToStorage();
 }
 
 export function removeFromCart(productId){
@@ -50,5 +50,5 @@ export function removeFromCart(productId){
 
     cart = newCart;
 
-    //saveToStorage();
+    saveToStorage();
 }
