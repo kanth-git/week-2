@@ -1,6 +1,5 @@
-import {cart} from '../data/cart.js';
+import {cart,removeFromCart} from '../data/cart.js';
 import {products} from '../data/products.js';
-
 
 let cartSummaryHTML = '';
 
@@ -30,7 +29,7 @@ cart.forEach((cartItem) => {
             ${matchingProduct.name}
           </div>
           <div class="product-price">
-            $${(matchingProduct.priceCents) /100}
+            $${(matchingProduct.priceCents).toFixed(2)}
           </div>
           <div class="product-quantity">
             <span>
@@ -96,3 +95,12 @@ cart.forEach((cartItem) => {
 
 document.querySelector('.js-order-summary')
   .innerHTML = cartSummaryHTML;
+
+  document.querySelectorAll('.js-delete-link').forEach((link)=>{
+    link.addEventListener('click',()=>{
+      const productId = link.dataset.productId;
+      removeFromCart(productId);
+      
+    });
+   
+  });
